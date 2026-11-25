@@ -1,0 +1,39 @@
+{
+  "name": "dsh-graphfs",
+  "version": "0.3.2",
+  "private": true,
+  "type": "module",
+  "description": "GraphFS — 工作区一致性图（DSH 插件）",
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "build": "node --no-warnings scripts/build.mjs",
+    "test": "node --test",
+    "test:unit": "node --test test/unit/*.test.ts",
+    "test:prop": "node --test test/property/*.test.ts",
+    "graphfs": "node src/cli/main.ts",
+    "demo": "./demo/run.sh",
+    "prepare": "node --no-warnings scripts/build.mjs"
+  },
+  "bin": {
+    "graphfs": "./lib/cli/main.js"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cli": "./lib/cli/main.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/**/*.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dependencies": {},
+  "dsh": {
+    "bundle": {
+      "patch": "cordis.patch.yml"
+    }
+  }
+}
